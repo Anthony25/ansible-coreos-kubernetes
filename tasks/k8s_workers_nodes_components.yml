@@ -17,7 +17,6 @@
     mode: 0644
     backup: yes
   with_items:
-    - { yaml: "{{k8s_kube_apiserver}}", dest: '/etc/kubernetes/manifests/kube-apiserver.yaml' }
     - { yaml: "{{k8s_kube_proxy_workers}}", dest: '/etc/kubernetes/manifests/kube-proxy.yaml' }
     - { yaml: "{{k8s_worker_kubeconfig}}", dest: '/etc/kubernetes/worker-kubeconfig.yaml' }
   notify: restart kubelet
