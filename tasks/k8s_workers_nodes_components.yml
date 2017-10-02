@@ -15,7 +15,6 @@
     owner: root
     group: root
     mode: 0644
-    backup: yes
   with_items:
     - { yaml: "{{k8s_kube_proxy_workers}}", dest: '/etc/kubernetes/manifests/kube-proxy.yaml' }
     - { yaml: "{{k8s_worker_kubeconfig}}", dest: '/etc/kubernetes/worker-kubeconfig.yaml' }

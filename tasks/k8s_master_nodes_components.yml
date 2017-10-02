@@ -15,7 +15,6 @@
     owner: root
     group: root
     mode: 0644
-    backup: yes
   with_items:
     - { yaml: "{{k8s_kube_apiserver}}", dest: 'kube-apiserver.yaml' }
     - { yaml: "{{k8s_kube_controller_manager}}", dest: 'kube-controller-manager.yaml' }
@@ -29,7 +28,6 @@
     owner: root
     group: root
     mode: 0644
-    backup: yes
   with_items:
     - { yaml: "{{k8s_kube_proxy_masters}}", dest: 'kube-proxy.yaml' }
   notify: restart kubelet
