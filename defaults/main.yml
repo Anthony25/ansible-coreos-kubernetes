@@ -201,7 +201,7 @@ k8s_kube_proxy_workers:
       command:
       - /hyperkube
       - proxy
-      - --master=http://127.0.0.1:8080
+      - --master=https://{{k8s_master_host}}
       - --cluster-cidr={{k8s_pod_network}}
       - --hostname-override={{ansible_hostname}}
       - --kubeconfig=/etc/kubernetes/worker-kubeconfig.yaml
@@ -306,7 +306,7 @@ k8s_worker_kubeconfig:
   - name: local
     cluster:
       certificate-authority: /etc/kubernetes/ssl/ca.pem
-      server: "http://127.0.0.1:8080"
+      server: "https://{{ k8s_master_host }}"
   users:
   - name: kubelet
     user:
